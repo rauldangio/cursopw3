@@ -4,13 +4,14 @@ package br.com.etec.raul.curso.model;
 import javax.persistence.*;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "aluno")
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String nomeAluno;
+    private long idaluno;
+    private String nomealuno;
 
     @ManyToOne
     @JoinColumn(name = "idcurso")
@@ -20,20 +21,20 @@ public class Aluno {
     @JoinColumn(name = "idcidade")
     private Cidade cidade;
 
-    public long getId() {
-        return id;
+    public long getIdaluno() {
+        return idaluno;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdaluno(long idaluno) {
+        this.idaluno = idaluno;
     }
 
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNomealuno() {
+        return nomealuno;
     }
 
-    public void setNomeAluno(String nomeAluno) {
-        this.nomeAluno = nomeAluno;
+    public void setNomealuno(String nomealuno) {
+        this.nomealuno = nomealuno;
     }
 
     public Curso getCurso() {
@@ -57,11 +58,11 @@ public class Aluno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return id == aluno.id;
+        return idaluno == aluno.idaluno;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idaluno);
     }
 }

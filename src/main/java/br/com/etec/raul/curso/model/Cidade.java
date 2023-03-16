@@ -13,8 +13,8 @@ public class Cidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String nomeCidade;
+    private int idcidade;
+    private String nomecidade;
     private String uf;
 
     @OneToMany
@@ -22,19 +22,19 @@ public class Cidade {
     private List<Aluno> alunoscidade = new ArrayList<>();
 
     public int getId() {
-        return id;
+        return idcidade;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idcidade = idcidade;
     }
 
     public String getNomeCidade() {
-        return nomeCidade;
+        return nomecidade;
     }
 
     public void setNomeCidade(String nomeCidade) {
-        this.nomeCidade = nomeCidade;
+        this.nomecidade = nomeCidade;
     }
 
     public String getUf() {
@@ -58,11 +58,11 @@ public class Cidade {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return id == cidade.id;
+        return idcidade == cidade.idcidade;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idcidade);
     }
 }

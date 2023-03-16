@@ -12,9 +12,9 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idcurso;
 
-    private String nomeCurso;
+    private String nomecurso;
 
     @OneToMany(mappedBy = "curso")
     private List<Aluno> alunoscurso = new ArrayList<>();
@@ -27,17 +27,20 @@ public class Curso {
         this.alunoscurso = alunoscurso;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdcurso() {
+        return idcurso;
     }
-    public void setId(Integer id) {
-        this.id = id;
+
+    public void setIdcurso(Integer idcurso) {
+        this.idcurso = idcurso;
     }
-    public String getNomeCurso() {
-        return nomeCurso;
+
+    public String getNomecurso() {
+        return nomecurso;
     }
-    public void setNomeCurso(String nomeCurso) {
-        this.nomeCurso = nomeCurso;
+
+    public void setNomecurso(String nomecurso) {
+        this.nomecurso = nomecurso;
     }
 
     @Override
@@ -45,11 +48,11 @@ public class Curso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return Objects.equals(id, curso.id);
+        return Objects.equals(idcurso, curso.idcurso);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idcurso);
     }
 }
