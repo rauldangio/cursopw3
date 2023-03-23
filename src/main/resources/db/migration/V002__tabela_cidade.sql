@@ -1,5 +1,5 @@
 create table cidade(
-    idcidade int not null auto_increment primary key,
+    id int not null auto_increment primary key,
     nomecidade varchar(40) not null
 );
 
