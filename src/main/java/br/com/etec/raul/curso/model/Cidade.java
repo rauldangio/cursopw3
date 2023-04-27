@@ -1,6 +1,8 @@
 package br.com.etec.raul.curso.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,20 +15,20 @@ public class Cidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcidade;
+    private int id;
     private String nomecidade;
     private String uf;
 
-    @OneToMany
-    @JoinColumn(name = "cidade")
+    @OneToMany(mappedBy = "cidade")
+    @JsonIgnore
     private List<Aluno> alunoscidade = new ArrayList<>();
 
     public int getId() {
-        return idcidade;
+        return id;
     }
 
     public void setId(int id) {
-        this.idcidade = idcidade;
+        this.id = id;
     }
 
     public String getNomeCidade() {
@@ -58,11 +60,11 @@ public class Cidade {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return idcidade == cidade.idcidade;
+        return id == cidade.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idcidade);
+        return Objects.hash(id);
     }
 }

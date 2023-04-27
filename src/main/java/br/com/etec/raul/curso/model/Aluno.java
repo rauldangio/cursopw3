@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idaluno;
+    private long id;
     private String nomealuno;
 
     @ManyToOne
@@ -22,11 +22,11 @@ public class Aluno {
     private Cidade cidade;
 
     public long getIdaluno() {
-        return idaluno;
+        return id;
     }
 
     public void setIdaluno(long idaluno) {
-        this.idaluno = idaluno;
+        this.id = idaluno;
     }
 
     public String getNomealuno() {
@@ -58,11 +58,11 @@ public class Aluno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return idaluno == aluno.idaluno;
+        return id == aluno.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idaluno);
+        return Objects.hash(id);
     }
 }
