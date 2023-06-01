@@ -38,7 +38,8 @@ public class CursoRepositoryImpl implements CursoRepositoryQuery{
         return new PageImpl<>(query.getResultList(), pageable, total(cursoFilter));
     }
 
-    private Long total(CursoFilter cursoFilter) {
+    private Long total(CursoFilter cursoFilter)
+    {
         CriteriaBuilder builder = manager.getCriteriaBuilder();
         CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
         Root<Curso> root = criteria.from(Curso.class);
@@ -70,6 +71,8 @@ public class CursoRepositoryImpl implements CursoRepositoryQuery{
                     "%" + cursoFilter.getNomecurso().toLowerCase() + "%"
                     ));
         }
+
+
 
         return predicates.toArray(new Predicate[predicates.size()]);
     }
